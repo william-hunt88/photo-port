@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav() {
+function Nav({currentCategory, setCurrentCategory}) {
   const [categories] = useState([
     {
       name: "commercial",
@@ -17,7 +17,7 @@ function Nav() {
     },
   ]);
 
-  const [currentCategory, setCurrentCategory] = useState(categories[0]);
+  // const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   useEffect(() => {
     document.title = capitalizeFirstLetter(currentCategory.name);
@@ -54,6 +54,7 @@ function Nav() {
               <span
                 onClick={() => {
                   setCurrentCategory(category);
+                  console.log(category)
                 }}
               >
                 {capitalizeFirstLetter(category.name)}
